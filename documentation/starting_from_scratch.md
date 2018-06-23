@@ -85,4 +85,36 @@ yarn-error.log*
 
 **What is the `#` and why is it in there?** This is mark a comment, for your convenience.
 
-At this point I think we are ready for our first commit and to push it to our remote repo.
+At this point I think we are ready for our first commit and to push it to our remote repo. Start by adding all the files to git in your terminal:
+
+```shell
+git add -A
+```
+
+You can check everything has been added by running:
+
+```shell
+git status
+```
+
+and you should see something like this:
+
+>     new file:   .gitignore
+>
+>     new file:   package.json
+>
+>     new file:   yarn.lock
+
+Now its time to make our commit:
+
+```shell
+git commit -m "Initial Commit"
+```
+
+And finally lets push it to or remote link.
+
+```shell
+git push origin master
+```
+
+Pack up your stuff, you are all done! Just Kidding of course.

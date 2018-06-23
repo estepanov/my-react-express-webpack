@@ -1,0 +1,12 @@
+{
+  "name": "my-react-express-webpack",
+  "version": "1.0.0",
+  "description": "My Custom built boilerplate with the latest versions of React, Redux, Webpack, Babel, Node, Express",
+  "main": "index.js",
+  "repository": "git@github.com:estepanov/my-react-express-webpack.git",
+  "author": "Evans A. Stepanov",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.12.0"
+  }
+}

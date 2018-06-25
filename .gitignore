@@ -1,3 +1,6 @@
+# Compiled Distribution
+dist/
+
 # Dependencies
 node_modules/
 

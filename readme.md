@@ -1,15 +1,26 @@
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](https://github.com/standard/standard)
+
 # Welcome
 
 This is my attempt to create a boilerplate utilizing the latest versions of:
 
 - React
+  - React router
 - Redux
-- React router
-- Webpack
+- Styled-Components
+  - polished
+- Webpack 4
+  - webpack-cli
+  - html-webpack-plugin
+  - webpack-dev-server
 - Node
 - Express
 - Sequelize
 - PostgreSQL
+- ESLint
+  - JS Standard
+- Prettier
+  - ESLint integration
 
 **This project is in no way complete yet. Do not use it, yet!**
 

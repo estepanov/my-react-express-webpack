@@ -6,7 +6,7 @@ I hope you find this useful. If you find any problems, errors, or just have a co
 
 Lets start by building out the file structure for the project. First we need to make a folder that will hold the repository (this project that we are remaking).
 
-```shell
+```sh
 mkdir my-react-express-webpack && cd my-react-express-webpack
 ```
 
@@ -14,8 +14,8 @@ This created a folder called `my-react-express-webpack` and opened that director
 
 Lets create a `src` folder that will hold the source code for both the client and the server:
 
-```shell
-mkdir src src/client src/server
+```sh
+mkdir src src/server src/client src/client/containers src/client/components src/client/store
 ```
 
 This command creates a `src` folder and then two folders inside of the `src` folder called `client` and `server`.
@@ -26,7 +26,7 @@ Next lets initialize our main folder so that we can install packages.
 
 > **_Note:_** I am going to use [Yarn](https://yarnpkg.com/lang/en/docs/install/#mac-stable) in this guide instead of npm. You do not have to use it, I just like it.
 
-```shell
+```sh
 yarn init -y
 ```
 
@@ -38,7 +38,7 @@ Now that we have created a `package.json` file inside of our `my-react-express-w
 
 Well we now have stuff and a structure that we want to keep safe and committed with source control. Lets run the following command to tell git to track this folder.
 
-```shell
+```sh
 git init
 ```
 
@@ -46,13 +46,13 @@ If you want to push this to a remote git control you will need to add remote poi
 
 To add this endpoint to your newly initiialized local git repos _(meaning on your machine)_ you will need to run the following command. Make sure to replace my github repo address with yours.
 
-```shell
+```sh
 git remote add origin git@github.com:estepanov/my-react-express-webpack.git
 ```
 
 Next, while still in the root of our project folder, lets create a `.gitignore` file using the following command:
 
-```shell
+```sh
 touch .gitignore
 ```
 
@@ -61,6 +61,9 @@ This will tell git which files we want it to ignore _(thus not track its changes
 Go ahead and open the `.gitignore` file in your favorite editor and we will be adding the following text to it:
 
 ```text
+# Compiled Distribution
+dist/
+
 # Dependencies
 node_modules/
 
@@ -81,40 +84,119 @@ yarn-error.log*
 .DS_STORE
 ```
 
-**What does this text do?** It tells git which files to ignore.
+**What does this code do?** It tells git which files to ignore.
 
-**What is the `#` and why is it in there?** This is mark a comment, for your convenience.
+**What is the `#` and why is it in there?** This is a comment, for your convenience.
 
 At this point I think we are ready for our first commit and to push it to our remote repo. Start by adding all the files to git in your terminal:
 
-```shell
+```sh
 git add -A
 ```
 
 You can check everything has been added by running:
 
-```shell
+```sh
 git status
 ```
 
 and you should see something like this:
 
 >     new file:   .gitignore
->
 >     new file:   package.json
->
->     new file:   yarn.lock
 
 Now its time to make our commit:
 
-```shell
+```sh
 git commit -m "Initial Commit"
 ```
 
 And finally lets push it to or remote link.
 
-```shell
+```sh
 git push origin master
 ```
 
 Pack up your stuff, you are all done! Just Kidding of course.
+
+## Adding ESLint
+
+To install the package run:
+
+```Sh
+yarn add --dev
+```
+
+Create the ESLint configuration file `.eslint.json` by running the following command in the root directory:
+
+```Sh
+touch .eslint.json
+```
+
+## Setting Up Webpack
+
+Lets add webpack 4 (and all the associated plugins we will be using) to our projects development dependencies by running the following yarn command:
+
+```sh
+yarn add --dev webpack webpack-cli webpack-dev-server html-webpack-plugin
+```
+
+In the root repo directory lets create a `webpack.config.js` file by running the following the command:
+
+```sh
+touch webpack.config.js
+```
+
+Now open this file in a code editor. And lets place the following text into the `webpack.config.js` file:
+
+```JavaScript
+
+```
+
+If you want to know whats going on read the comments in the text file above.
+
+## Adding React 16
+
+```sh
+yarn add react react-dom react-router-dom
+```
+
+Now navigate to the `src/client` folder and create an `index.jsx` file. Both of these steps can be done by using the command:
+
+```sh
+cd src/client && touch index.js
+```
+
+Place the following code inside of the index.js
+
+```JavaScript
+
+```
+
+## Adding Babel
+
+Install the following Babel related dependencies
+
+```sh
+yarn add --dev babel-core babel-loader babel-preset-stage-2 babel-preset-react
+```
+
+Go ahead and create a `.babelrc` in the root directory.
+
+```sh
+touch .babelrc
+```
+
+Now insert the following code into `.babelrc`:
+
+```JavaScript
+
+```
+
+## Adding Prettier
+
+Install the following prettier related dependencies
+
+```Sh
+yarn add --dev prettier eslint-plugin-prettier
+```

@@ -1,5 +1,4 @@
 const path = require("path");
-const webpack = require("webpack");
 const HTMLWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
@@ -12,7 +11,7 @@ module.exports = {
   // output file(s) and chunks
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "main.js",
+    filename: "[hash].main.js", // uses hash in filename
     publicPath: "/"
   },
 
@@ -41,7 +40,7 @@ module.exports = {
     historyApiFallback: true,
 
     // open browser on server start
-    open: process.env.NODE_ENV === "production" ? false : true
+    open: !process.env.NODE_ENV === "production"
   },
 
   // generate source map

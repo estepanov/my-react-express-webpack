@@ -30,6 +30,15 @@ Next lets initialize our main folder so that we can install packages.
 yarn init -y
 ```
 
+After we have a `package.json` file we need to add the appropreiate scripts to the `package.json` JSON object:
+
+```JSON
+"scripts": {
+    "build": "NODE_ENV=production webpack --mode production",
+    "start": "webpack-dev-server --inline --hot"
+  },
+```
+
 Now that we have created a `package.json` file inside of our `my-react-express-webpack` folder we can proceed with the installation of packages (or dependencies).
 
 > **_Note:_** You can see I put a `-y` flag in the `yarn init` command, this just simplifies the initialization of package.json file. You can omit the `-y` flag if you want. Then you will have to manually enter some more information.
@@ -124,13 +133,25 @@ Pack up your stuff, you are all done! Just Kidding of course.
 To install the package run:
 
 ```Sh
-yarn add --dev
+yarn add --dev eslint eslint-plugin-standard eslint-plugin-react eslint-plugin-promise eslint-plugin-import eslint-plugin-node eslint-config-standard-react eslint-config-standard
 ```
 
-Create the ESLint configuration file `.eslint.json` by running the following command in the root directory:
+Create the ESLint configuration file `.eslintrc` by running the following command in the root directory:
 
 ```Sh
-touch .eslint.json
+touch .eslintrc
+```
+
+Now add the following JSON object to `.eslintrc` file:
+
+```JSON
+
+```
+
+Now we will add linting script to our `package.json` scripts object:
+
+```JSON
+
 ```
 
 ## Setting Up Webpack
@@ -155,7 +176,37 @@ Now open this file in a code editor. And lets place the following text into the 
 
 If you want to know whats going on read the comments in the text file above.
 
+We need to make an `index.html` template for webpack to add the built/compiled JavaScript. Lets create the `index.html` file in the root of teh project by running:
+
+```Sh
+touch index.html
+```
+
+Now paste the following HTML into `index.html`:
+
+```html
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>my-react-express-webpack boilerplate</title>
+</head>
+
+<body>
+  <div id="app-root">
+    This website requires JavaScript.
+  </div>
+</body>
+
+</html>
+```
+
 ## Adding React 16
+
+Lets add the React dependencies
 
 ```sh
 yarn add react react-dom react-router-dom
@@ -189,14 +240,8 @@ touch .babelrc
 
 Now insert the following code into `.babelrc`:
 
-```JavaScript
-
-```
-
-## Adding Prettier
-
-Install the following prettier related dependencies
-
-```Sh
-yarn add --dev prettier eslint-plugin-prettier
+```JSON
+{
+  "presets": ["react", "stage-2"]
+}
 ```

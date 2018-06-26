@@ -1,18 +1,12 @@
 {
   "parserOptions": {
-    "ecmaVersion": 8,
+    "ecmaVersion": 2018,
     "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
       "jsx": true
     },
     "sourceType": "module"
   },
 
-  "plugins": ["standard", "react", "promise", "import", "node", "prettier"],
-
-  "extends": ["standard", "standard-react", "prettier"],
-
-  "rules": {
-    "prettier/prettier": "error"
-  }
+  "plugins": ["standard", "react", "promise", "import", "node"],
+  "extends": ["standard", "standard-react"]
 }

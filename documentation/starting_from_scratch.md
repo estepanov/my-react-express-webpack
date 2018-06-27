@@ -2,7 +2,20 @@
 
 I hope you find this useful. If you find any problems, errors, or just have a comment feel free to post an issue in this repository.
 
-## File Structure
+---
+
+Table of Contents
+
+1) [General Setup](#general-setup)
+A) [File/Folder Structure](#file-structure)
+2) Front End Setup
+3) Back End Setup
+
+---
+
+## **General Setup**
+
+### **File Structure**
 
 Lets start by building out the file structure for the project. First we need to make a folder that will hold the repository (this project that we are remaking).
 
@@ -20,7 +33,7 @@ mkdir src src/server src/client src/client/containers src/client/components src/
 
 This command creates a `src` folder and then two folders inside of the `src` folder called `client` and `server`.
 
-## Initialize package.json
+### **Initialize package.json**
 
 Next lets initialize our main folder so that we can install packages.
 
@@ -43,7 +56,7 @@ Now that we have created a `package.json` file inside of our `my-react-express-w
 
 > **_Note:_** You can see I put a `-y` flag in the `yarn init` command, this just simplifies the initialization of package.json file. You can omit the `-y` flag if you want. Then you will have to manually enter some more information.
 
-## Initialize git
+### **Initialize git**
 
 Well we now have stuff and a structure that we want to keep safe and committed with source control. Lets run the following command to tell git to track this folder.
 
@@ -153,8 +166,13 @@ Now we will add linting script to our `package.json` scripts object:
 ```JSON
 
 ```
+---
+## **Front End**
 
-## Setting Up Webpack
+Here we will begin setting up the front end of our application.
+
+
+### **Setting Up Webpack**
 
 Lets add webpack 4 (and all the associated plugins we will be using) to our projects development dependencies by running the following yarn command:
 
@@ -204,7 +222,7 @@ Now paste the following HTML into `index.html`:
 </html>
 ```
 
-## Adding React 16
+### **Adding React 16**
 
 Lets add the React dependencies
 
@@ -224,7 +242,7 @@ Place the following code inside of the index.js
 
 ```
 
-## Adding Babel
+### **Adding Babel**
 
 Install the following Babel related dependencies
 
@@ -244,4 +262,18 @@ Now insert the following code into `.babelrc`:
 {
   "presets": ["react", "stage-2"]
 }
+```
+
+---
+
+## **Back end**
+
+Now on to setting up the back end of our application.
+
+### **Add Nodemon**
+
+Nodemon is a great tool for listening/watching to file changes and then relauching a node process. We will be using this exclusively for our backend development. We will use webpack-dev-server to serve and update the front end application when it changes. For our back end we will use nodemon to update our backend application when it changes.
+
+```sh
+yarn add --dev nodemon
 ```

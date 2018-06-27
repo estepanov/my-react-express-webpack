@@ -27,6 +27,7 @@
   "scripts": {
     "build": "NODE_ENV=production webpack --mode production",
     "start": "webpack-dev-server --inline --hot",
+    "build-client-watch": "webpack -w --inline --hot",
     "lint": "eslint ./ --ignore-path .gitignore"
   },
   "dependencies": {

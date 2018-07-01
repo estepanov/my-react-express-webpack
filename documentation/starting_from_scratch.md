@@ -7,7 +7,10 @@ I hope you find this useful. If you find any problems, errors, or just have a co
 Table of Contents
 
 1) [General Setup](#general-setup)
-A) [File/Folder Structure](#file-structure)
+
+   a) [File/Folder Structure](#file-structure)
+   b) [Initialize package.json](#initialize-packagejson)
+
 2) Front End Setup
 3) Back End Setup
 
@@ -166,11 +169,23 @@ Now we will add linting script to our `package.json` scripts object:
 ```JSON
 
 ```
+
+---
+
+## **Running Two Enviroments**
+
+While we are building the front and backend of the application it would be nice for the right part of the application to update when a change is made.
+
+lets install `concurrently` which lets us run multiple commands at one time.
+
+```sh
+yarn add --dev concurrently
+```
+
 ---
 ## **Front End**
 
 Here we will begin setting up the front end of our application.
-
 
 ### **Setting Up Webpack**
 
@@ -247,7 +262,7 @@ Place the following code inside of the index.js
 Install the following Babel related dependencies
 
 ```sh
-yarn add --dev babel-core babel-loader babel-preset-stage-2 babel-preset-react
+yarn add --dev @babel/core @babel/preset-env @babel/preset-react @babel/preset-stage-2 babel-loader@^8.0.0-beta
 ```
 
 Go ahead and create a `.babelrc` in the root directory.
@@ -260,7 +275,16 @@ Now insert the following code into `.babelrc`:
 
 ```JSON
 {
-  "presets": ["react", "stage-2"]
+  "presets": [
+    "@babel/env",
+    "@babel/preset-react",
+    [
+      "@babel/preset-stage-2",
+      {
+        "decoratorsLegacy": true
+      }
+    ]
+  ]
 }
 ```
 
@@ -277,3 +301,20 @@ Nodemon is a great tool for listening/watching to file changes and then relauchi
 ```sh
 yarn add --dev nodemon
 ```
+
+### **Add Express**
+
+Express will help simplify the development of our server/API.
+
+```sh
+yarn add express
+```
+
+Now go to `src/server/` and create an `index.js` file which will be the root of our server.
+
+In the `index.js` file place the following code:
+
+```JavaScript
+
+```
+

@@ -38,9 +38,12 @@ module.exports = {
   devServer: {
     // must be `true` for SPAs
     historyApiFallback: true,
-
+    port: 3000,
+    proxy: {
+      '/api': 'http://localhost:8080'
+    },
     // open browser on server start
-    open: !process.env.NODE_ENV === "production"
+    open: !process.env.NODE_ENV === "production",
   },
 
   // generate source map

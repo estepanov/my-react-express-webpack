@@ -7,10 +7,12 @@
   "author": "Evans A. Stepanov",
   "license": "MIT",
   "devDependencies": {
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-2": "^6.24.1",
+    "@babel/core": "^7.0.0-beta.51",
+    "@babel/preset-env": "^7.0.0-beta.51",
+    "@babel/preset-react": "^7.0.0-beta.51",
+    "@babel/preset-stage-2": "^7.0.0-beta.51",
+    "babel-loader": "^8.0.0-beta",
+    "concurrently": "^3.6.0",
     "eslint": "^5.0.1",
     "eslint-config-standard": "^11.0.0",
     "eslint-config-standard-react": "^6.0.0",
@@ -20,14 +22,18 @@
     "eslint-plugin-react": "^7.10.0",
     "eslint-plugin-standard": "^3.1.0",
     "html-webpack-plugin": "^3.2.0",
+    "nodemon": "^1.17.5",
     "webpack": "^4.12.1",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4"
   },
   "scripts": {
     "build": "NODE_ENV=production webpack --mode production",
-    "start": "webpack-dev-server --inline --hot",
-    "build-client-watch": "webpack -w --inline --hot",
+    "start": "concurrently \"npm run dev-server\" \"npm run build-client-watch\"",
+    "build-client-watch": "webpack-dev-server --inline --open --hot",
+    "build-client-watch-one": "webpack -w --inline --hot",
+    "dev-server": "nodemon src/server/index.js",
+    "production-server": "node src/server/index.js",
     "lint": "eslint ./ --ignore-path .gitignore"
   },
   "dependencies": {

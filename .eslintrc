@@ -6,7 +6,21 @@
     },
     "sourceType": "module"
   },
-
-  "plugins": ["standard", "react", "promise", "import", "node"],
-  "extends": ["standard", "standard-react"]
+  "rules": {
+    "space-before-function-paren": [
+      "error",
+      "never"
+    ]
+  },
+  "plugins": [
+    "standard",
+    "react",
+    "promise",
+    "import",
+    "node"
+  ],
+  "extends": [
+    "standard",
+    "standard-react"
+  ]
 }

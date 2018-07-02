@@ -1,13 +1,16 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react'
+import ReactDOM from 'react-dom'
 // create sample App component
 class App extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
+    this.state = {
+
+    }
   }
   render() {
-    return <h1>Hello From React!</h1>;
+    return <h1>Hello From React!</h1>
   }
 }
 // render inside `app-root` element
-ReactDOM.render(<App />, document.getElementById("app-root"));
+ReactDOM.render(<App />, document.getElementById('app-root'))

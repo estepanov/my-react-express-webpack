@@ -1,6 +1,6 @@
 # Building This Boilerplate From Scratch
 
-I hope you find this useful. If you find any problems, errors, or just have a comment feel free to post an issue in this repository.
+I hope you find this useful. If you find any problems, errors, or just have a comment feel free to post an issue in this repository. It is important to note that the tutorial here assumes ___you will___ follow every step. This means that each section will include important details for other sections.
 
 ---
 
@@ -8,15 +8,41 @@ Table of Contents
 
 1) [General Setup](#general-setup)
 
-   a) [File/Folder Structure](#file-structure)
-   b) [Initialize package.json](#initialize-packagejson)
+    A) [File/Folder Structure](#file-structure)
 
-2) Front End Setup
-3) Back End Setup
+    B) [Initialize package.json](#initialize-packagejson)
+
+    C) [Initialize git](#initialize-git)
+
+    D) [Adding ESLint](#adding-eslint)
+
+    E) [Running Two Enviroments](#running-two-enviroments)
+
+2) [Frontend Setup](#frontend)
+
+    A) [Setting Up Webpack 4](#setting-up-webpack)
+
+    B) [Adding React 16](#adding-react-16)
+
+    C) [Adding Babel](#adding-babel)
+
+    D)
+
+3) [Backend Setup](#backend)
+
+    A) [Adding Nodemon](#add-nodemon)
+
+    B) [Adding dotenv](#add-dotenv)
+
+    c) [Adding Express](#add-express)
+
+    D)
 
 ---
 
 ## **General Setup**
+
+---
 
 ### **File Structure**
 
@@ -49,15 +75,20 @@ yarn init -y
 After we have a `package.json` file we need to add the appropreiate scripts to the `package.json` JSON object:
 
 ```JSON
-"scripts": {
+  "scripts": {
     "build": "NODE_ENV=production webpack --mode production",
-    "start": "webpack-dev-server --inline --hot"
+    "start": "concurrently \"npm run dev-server\" \"npm run build-client-watch\"",
+    "build-client-watch": "webpack-dev-server -w --inline --open --hot",
+    "dev-server": "nodemon src/server/index.js",
+    "production-server": "node src/server/index.js",
   },
 ```
 
 Now that we have created a `package.json` file inside of our `my-react-express-webpack` folder we can proceed with the installation of packages (or dependencies).
 
 > **_Note:_** You can see I put a `-y` flag in the `yarn init` command, this just simplifies the initialization of package.json file. You can omit the `-y` flag if you want. Then you will have to manually enter some more information.
+
+---
 
 ### **Initialize git**
 
@@ -144,7 +175,9 @@ git push origin master
 
 Pack up your stuff, you are all done! Just Kidding of course.
 
-## Adding ESLint
+---
+
+### **Adding ESLint**
 
 To install the package run:
 
@@ -161,13 +194,38 @@ touch .eslintrc
 Now add the following JSON object to `.eslintrc` file:
 
 ```JSON
-
+{
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "rules": {
+    "space-before-function-paren": [
+      "error",
+      "never"
+    ]
+  },
+  "plugins": [
+    "standard",
+    "react",
+    "promise",
+    "import",
+    "node"
+  ],
+  "extends": [
+    "standard",
+    "standard-react"
+  ]
+}
 ```
 
 Now we will add linting script to our `package.json` scripts object:
 
 ```JSON
-
+    "lint": "eslint ./ --ignore-path .gitignore"
 ```
 
 ---
@@ -183,7 +241,7 @@ yarn add --dev concurrently
 ```
 
 ---
-## **Front End**
+## **Frontend**
 
 Here we will begin setting up the front end of our application.
 
@@ -290,7 +348,7 @@ Now insert the following code into `.babelrc`:
 
 ---
 
-## **Back end**
+## **Backend**
 
 Now on to setting up the back end of our application.
 
@@ -301,6 +359,23 @@ Nodemon is a great tool for listening/watching to file changes and then relauchi
 ```sh
 yarn add --dev nodemon
 ```
+
+### **Add dotenv**
+
+`dotenv` is great tool for letting you import/set enviroment variables from a `.env` file located in your project root directory. We will use this for setting dev enviroment settings.
+
+lets add the module:
+
+```sh
+yarn add dotenv
+```
+
+Now create a `.env` file in the root project directory and fill in the following variables. Note that if you change the port you will need to adjust webpack config settings.
+
+```text
+
+```
+
 
 ### **Add Express**
 

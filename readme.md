@@ -6,7 +6,6 @@ This is my attempt to create a boilerplate utilizing the latest versions of:
 
 - React
   - React router
-- Redux
 - Styled-Components
   - polished
 - Webpack 4
@@ -15,8 +14,7 @@ This is my attempt to create a boilerplate utilizing the latest versions of:
   - webpack-dev-server
 - Node
 - Express
-- Sequelize
-- PostgreSQL
+- dotenv
 - ESLint
   - JS Standard
 

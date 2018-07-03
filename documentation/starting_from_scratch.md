@@ -42,7 +42,6 @@ Table of Contents
 
 ## **General Setup**
 
----
 
 ### **File Structure**
 
@@ -230,7 +229,7 @@ Now we will add linting script to our `package.json` scripts object:
 
 ---
 
-## **Running Two Enviroments**
+### **Running Two Enviroments**
 
 While we are building the front and backend of the application it would be nice for the right part of the application to update when a change is made.
 
@@ -346,6 +345,24 @@ Now insert the following code into `.babelrc`:
 }
 ```
 
+### **Adding Redux**
+
+Lets add redux and its associated libraries. We will also be adding:
+- [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension)
+  - This will allow us to use a [Chrome extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd) or [Firefox Add-on](https://addons.mozilla.org/en-US/firefox/addon/remotedev/) to see state changes in a much more clear way.
+- [redux-logger](https://github.com/evgenyrodionov/redux-logger)
+  - This will show us a console.log statement for every redux action, it will work on every browser.
+
+```sh
+yarn add redux react-redux redux-logger redux-devtools-extension
+```
+
+Now create a `index.js` in `src/client/store` directory. Inside of the `index.js` file place the following code:
+
+```JavaScript
+
+```
+
 ---
 
 ## **Backend**
@@ -393,3 +410,8 @@ In the `index.js` file place the following code:
 
 ```
 
+---
+
+### Launch
+
+You can start the development backend and frontend, which will auto re-launch with updates,

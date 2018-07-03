@@ -36,8 +36,13 @@
     "lint": "eslint ./ --ignore-path .gitignore"
   },
   "dependencies": {
+    "dotenv": "^6.0.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
-    "react-router-dom": "^4.3.1"
+    "react-redux": "^5.0.7",
+    "react-router-dom": "^4.3.1",
+    "redux": "^4.0.0",
+    "redux-devtools-extension": "^2.13.5",
+    "redux-logger": "^3.0.6"
   }
 }

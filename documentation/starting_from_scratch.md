@@ -26,7 +26,7 @@ Table of Contents
 
     C) [Adding Babel](#adding-babel)
 
-    D)
+    D) [Adding Redux](#adding-redux)
 
 3) [Backend Setup](#backend)
 
@@ -36,7 +36,7 @@ Table of Contents
 
     c) [Adding Express](#add-express)
 
-    D)
+    D) [Adding Express Middleware](#add-express-middleware)
 
 ---
 
@@ -409,6 +409,14 @@ In the `index.js` file place the following code:
 ```JavaScript
 
 ```
+
+### **Add Express Middleware**
+
+Here we will be adding the following middleware to Express:
+- compression - compressing outbound data
+- body-parser - parsing incoming data
+- Helmet - Secure headers
+- Morgan - Logging connection info
 
 ---
 

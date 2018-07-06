@@ -413,10 +413,16 @@ In the `index.js` file place the following code:
 ### **Add Express Middleware**
 
 Here we will be adding the following middleware to Express:
-- compression - compressing outbound data
-- body-parser - parsing incoming data
-- Helmet - Secure headers
-- Morgan - Logging connection info
+- [compression](https://github.com/expressjs/compression) - compressing outbound data
+- [body-parser](https://github.com/expressjs/body-parser) - parsing incoming data
+- [Helmet](https://github.com/helmetjs/helmet) - Secure headers
+- [Morgan](https://github.com/expressjs/morgan) - Logging connection info
+
+Install these by running:
+
+```sh
+yarn add compression body-parser helmet morgan
+```
 
 ---
 
